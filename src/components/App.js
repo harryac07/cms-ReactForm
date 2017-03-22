@@ -20,7 +20,25 @@ const users=[
 	{
 		id:2,
 		name:'Pari',
-		email : 'h@yahoo.com',
+		email : 'p@yahoo.com',
+		phone : '0449889800'
+	},
+	{
+		id:3,
+		name:'Bmal',
+		email : 'b@yahoo.com',
+		phone : '0449889800'
+	},
+	{
+		id:4,
+		name:'Shura',
+		email : 'sh@yahoo.com',
+		phone : '0449889800'
+	},
+	{
+		id:5,
+		name:'Vura',
+		email : 'v@yahoo.com',
 		phone : '0449889800'
 	}
 ];
@@ -39,6 +57,7 @@ class App extends Component {
 		this.edit = this.edit.bind(this);
 		this.userUpdate = this.userUpdate.bind(this);
 		this.validateEmail = this.validateEmail.bind(this);
+		this.sortByName = this.sortByName.bind(this);
 	}
 
 	componentWillMount() {
@@ -68,13 +87,13 @@ class App extends Component {
     		errors.push('email is not valid');
     	}
 
-    	if(!isNaN(phone)){
+    	if(!isNaN(phone) && phone.length>0){
     		userToAdd.phone = phone;
     	}else{
     		errors.push('only numbers are allowed');
     	}
 
-		if(errors.length==0){ // check if error exists
+		if(errors.length===0){ // check if error exists
 			this.setState({
 			    user: this.state.user.concat([userToAdd])
 			});
@@ -121,16 +140,19 @@ class App extends Component {
 		    	}else{
 		    		errors.push('email is not valid');
 		    	}
-
-		    	if(!isNaN(newPhone)){
-		    		userState[i].phone = newPhone;
-		    	}else{
-		    		errors.push('only numbers are allowed');
-		    	}
+		    	if(newPhone.length>0){
+			    	if(!isNaN(newPhone)){
+			    		userState[i].phone = newPhone;
+			    	}else{
+			    		errors.push('only numbers are allowed');
+			    	}
+			    }else{
+			    	errors.push('Phone number is mandatory')
+			    }
 			    
 		    }
 		}
-		if(errors.length==0){
+		if(errors.length===0){
 			this.setState({user: userState});
 		}else{
 			alert(errors);
@@ -141,6 +163,17 @@ class App extends Component {
 	validateEmail(email){
 		var re = /\S+@\S+\.\S+/;
     	return re.test(email);
+	}
+
+	sortByName() {
+		var users=this.state.user;
+		users.sort( function( a, b ) {
+		    a = a.name.toLowerCase();
+		    b = b.name.toLowerCase();
+
+		    return a < b ? -1 : a > b ? 1 : 0;
+		});
+		this.setState({user:users});
 	}
 
     render() {
@@ -155,7 +188,7 @@ class App extends Component {
 						<table className="table">
 							<thead>
 						      	<tr>
-							        <th>Name &nbsp; <span className="glyphicon glyphicon-arrow-down"></span></th>
+							        <th onClick={this.sortByName}>Name &nbsp; <span className="glyphicon glyphicon-arrow-down"></span></th>
 							        <th>Email</th>
 							        <th>Phone number</th>
 						      	</tr>

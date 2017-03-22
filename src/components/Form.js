@@ -41,7 +41,7 @@ var AddForm=React.createClass({
 					</div>
 					<input id="phone" type="text" className="form-control" placeholder="Enter phone no.."  ref="phone" required />
 					&nbsp;&nbsp;
-					<button style={this.buttonStyle} className="btn btn-primary ">Add User</button>
+					<button style={this.buttonStyle} className="btn btn-primary ">Add New</button>
 				</form>
 			</div>
         );

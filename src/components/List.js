@@ -1,6 +1,4 @@
 var React = require('react');
-var ReactDOM=require('react-dom');
-// import InlineEdit from 'react-edit-inline';
 
 var List = React.createClass({
 
@@ -19,7 +17,7 @@ var List = React.createClass({
 	},
 	remove() {
 		var confirmDelete =confirm("Delete username "+this.props.user.name+' ?');
-		if(confirmDelete == true){
+		if(confirmDelete === true){
 			this.props.remove(this.props.user);
 		}
 		
@@ -71,9 +69,9 @@ var List = React.createClass({
 			<tbody>	
 				{this.props.children}
 				<span >
-		       		<span style={this.style} className="glyphicon glyphicon-pencil" onClick={this.edit}>Edit</span>
+		       		<span style={this.style} className="glyphicon glyphicon-pencil" onClick={this.edit}></span>
 		        	&nbsp; &nbsp;
-		       		<span style={this.style} className="glyphicon glyphicon-trash" onClick={this.remove}>Delete</span>
+		       		<span style={this.style} className="glyphicon glyphicon-trash" onClick={this.remove}></span>
 		       	</span>
 		    </tbody>
         );

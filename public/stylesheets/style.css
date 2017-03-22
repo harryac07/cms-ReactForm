@@ -1,10 +1,10 @@
 body {
 	padding: 0;
-	margin: 40px !important;
+	
 }
 
 div.container{
-	padding: 0;
+	padding: 10px;
 	margin: 0;
 	width: 100%;
 	background-color: #ccc;
@@ -53,6 +53,10 @@ table.table{
 	margin-bottom: 20px;
 	padding: 20px;
 }
+tbody>span{
+	padding-left: 5px;
+}
+
 #form{
 	background-color: rgba(0,0,0,0.2);
 	padding: 20px;
@@ -69,6 +73,7 @@ td.active{
 tbody{
 	width: 100%;
 }
+
 
 
 
