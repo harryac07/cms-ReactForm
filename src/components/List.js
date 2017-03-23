@@ -8,9 +8,6 @@ var List = React.createClass({
 		}
 
 	},
-	componentWillMount() {
-
-	},
 
 	componentDidMount() {
 
@@ -60,14 +57,16 @@ var List = React.createClass({
 	renderForm() {
 		return(
 			<div>
-				<form className="form-inline">
+				<form className="form-inline" id="form-edit">
 					<div className="form-group">
 						<input type="text" className="form-control" defaultValue={this.props.user.name} ref="name" required autoComplete="off" />
 					</div>
 					<div className="form-group">
 						<input type="email" className="form-control" defaultValue={this.props.user.email} ref="email" required autoComplete="off" />
 					</div>
-					<input type="text" className="form-control" defaultValue={this.props.user.phone} ref="phone"  required autoComplete="off" />
+					<div className="form-group">
+						<input type="text" className="form-control" defaultValue={this.props.user.phone} ref="phone"  required autoComplete="off" />
+					</div>
 					&nbsp;&nbsp;
 					<button className="btn btn-primary " onClick={this.save}>Save</button>
 					&nbsp;

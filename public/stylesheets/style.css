@@ -27,12 +27,26 @@ nav.navigation{
 	margin: 0 auto!important;
 }
 
-.form-inline{
+.add-form{
 	background-color: #fff;
 	padding: 20px;
 	margin: 0 auto;
 	width: 95%;
 
+}
+/*.form-edit{
+	background-color: #fff;
+	
+	margin: 0 auto;
+	width: 100% !important;	
+}*/
+
+
+.form-edit input{
+ /* to be edited */
+    width: auto !important;
+    background-color: #fff;
+	margin: 0 auto;
 }
 
 #add-form-button{
@@ -59,7 +73,7 @@ input[type="text"], input[type="email"] {
   padding-left: 16px;
   width: auto;
 }
-input[type="email"]{
+.form-inline input[type="email"]{
 	width: 300px !important;
 	min-width: 200px;
 }
@@ -89,6 +103,7 @@ table.table{
 	background-color: white;
 	width: 95%;
 	margin: 0 auto;
+	border: 0;
 }
 #table{
 	margin-top: 20px;

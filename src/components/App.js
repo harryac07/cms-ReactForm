@@ -105,11 +105,14 @@ class App extends Component {
 	}
 
 	remove(userToRemove){
-		var stateUsers=this.state.user;
-		var index = stateUsers.indexOf(userToRemove);
-		console.log(index);
-		stateUsers.splice(index, 1);
-		this.setState({user: stateUsers });
+		var confirmDelete=confirm('Are you sure, delete '+userToRemove.name+' ?');
+		if(confirmDelete===true){
+			var stateUsers=this.state.user;
+			var index = stateUsers.indexOf(userToRemove);
+			stateUsers.splice(index, 1);
+			this.setState({user: stateUsers });	
+		}
+
 	}
 
 	edit(){
@@ -185,7 +188,7 @@ class App extends Component {
 		        	<Home />
 		        	<AddForm add={this.add}/>
 		        	<br />
-		        	
+
 					<div className="table-responsive">
 						<table className="table table-hover">
 							<thead>

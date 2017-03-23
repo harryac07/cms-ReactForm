@@ -20,7 +20,7 @@ var AddForm=React.createClass({
     render() {
         return (
         	<div id="form">
-				<form  className="form-inline" onSubmit={this.add} >
+				<form  className="form-inline add-form" onSubmit={this.add} >
 					<div className="form-group">
 						<input id="name" type="text" className="form-control" placeholder="Enter name.."  ref="name" required autoComplete="off" />
 					</div>
