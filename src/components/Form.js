@@ -17,31 +17,19 @@ var AddForm=React.createClass({
 		this.refs.phone.value='';
 	},
 
-	componentWillMount() {
-
-		this.buttonStyle={
-			float:'right',
-			margin:'0px 10px 0px 0px'
-		}
-
-		this.formStyle={
-			paddingLeft:30
-		}
-	},
-
     render() {
         return (
         	<div id="form">
-				<form  className="form-inline" style={this.formStyle} onSubmit={this.add} >
+				<form  className="form-inline" onSubmit={this.add} >
 					<div className="form-group">
-						<input id="name" type="text" className="form-control" placeholder="Enter name.."  ref="name" required />
+						<input id="name" type="text" className="form-control" placeholder="Enter name.."  ref="name" required autoComplete="off" />
 					</div>
 					<div className="form-group">
-						<input id="email" type="email" className="form-control" placeholder="Enter email.."  ref="email" required />
+						<input id="email" type="email" className="form-control" placeholder="Enter email.."  ref="email" required autoComplete="off" />
 					</div>
-					<input id="phone" type="text" className="form-control" placeholder="Enter phone no.."  ref="phone" required />
+					<input id="phone" type="text" className="form-control" placeholder="Enter phone no.."  ref="phone" required autoComplete="off" />
 					&nbsp;&nbsp;
-					<button style={this.buttonStyle} className="btn btn-primary ">Add New</button>
+					<button id="add-form-button" style={this.buttonStyle} className="btn ">Add New</button>
 				</form>
 			</div>
         );

@@ -4,12 +4,11 @@ body {
 }
 
 div.container{
-	padding: 10px;
-	margin: 0;
-	width: 100%;
+	margin: 0 auto;
+	width: 912px;
 	background-color: #ccc;
 	position: relative;
-	min-height: 600px;
+	min-height: 800px;
 	height: auto;
 }
 header h1{
@@ -22,14 +21,32 @@ nav{
 
 }
 nav.navigation{
-	background-color: rgba(0,0,0,0.5);
-	width: 100% !important;
+	background-color: #BDC3C7;
+	width: 912px !important;
 	padding: 20px !important;
-	margin: 0 !important;
+	margin: 0 auto!important;
 }
+
+.form-inline{
+	background-color: #fff;
+	padding: 20px;
+	margin: 0 auto;
+	width: 95%;
+
+}
+
+#add-form-button{
+	margin: 0 auto !important;
+	height: 40px;
+	float: right;
+	background-color: #ccc;
+	border: 0;
+	color: gray;
+}
+
 input.form-control{
-	background-color: #b3b3b3;
 	margin: 5px;
+	width: auto;
 
 }
 input[type="text"]:focus, input[type="email"]:focus {
@@ -39,7 +56,32 @@ input[type="text"]:focus, input[type="email"]:focus {
 input[type="text"], input[type="email"] {
   background-color : #fff; 
   height: 40px;
+  padding-left: 16px;
+  width: auto;
 }
+input[type="email"]{
+	width: 300px !important;
+	min-width: 200px;
+}
+.btn-primary{
+	background-color: #07f !important;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500px;
+}
+
+.btn-danger{
+	margin: 0 auto;
+	height: 40px;
+	background-color: #ccc !important;
+	border: 0 !important;
+	color: #07f !important;
+}
+
+button{
+	height: 40px;
+}
+
 .table-responsive{
 	width: 100%;
 }
@@ -53,20 +95,41 @@ table.table{
 	margin-bottom: 20px;
 	padding: 20px;
 }
-tbody>span{
-	padding-left: 5px;
+thead>tr{
+	height: 48px;
+	padding-top: 12px !important;
+	padding-bottom: 12px;
+	
+}
+th{
+	padding-left: 24px !important;
+	color: #757575;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 500px;
 }
 
-#form{
-	background-color: rgba(0,0,0,0.2);
-	padding: 20px;
-	margin: 0 auto;
-	width: 95%;
+tr{
+	height: 72px;
+
 }
-span.edit-user{
-	float: right;
-	padding-right: 20px;
+td{
+	padding-bottom: 24px;
+	padding-left: 24px !important;
+	padding-top: 24px !important;
+	color: #505050;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400px;
 }
+
+
+.glyphicon{
+	color:#909090;
+	height: 24px;
+	width: 24px;
+}
+
 td.active{
 	background-color: red;
 }

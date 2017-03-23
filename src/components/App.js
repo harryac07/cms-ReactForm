@@ -107,6 +107,7 @@ class App extends Component {
 	remove(userToRemove){
 		var stateUsers=this.state.user;
 		var index = stateUsers.indexOf(userToRemove);
+		console.log(index);
 		stateUsers.splice(index, 1);
 		this.setState({user: stateUsers });
 	}
@@ -183,9 +184,10 @@ class App extends Component {
             	<div className="container">
 		        	<Home />
 		        	<AddForm add={this.add}/>
+		        	<br />
 		        	
 					<div className="table-responsive">
-						<table className="table">
+						<table className="table table-hover">
 							<thead>
 						      	<tr>
 							        <th onClick={this.sortByName}>Name &nbsp; <span className="glyphicon glyphicon-arrow-down"></span></th>
@@ -194,12 +196,17 @@ class App extends Component {
 						      	</tr>
 							</thead>
 								{this.state.user.map((list,i)=>{
-									return <List key={i} user={list} users={this.state.user} userUpdate={this.userUpdate} remove={this.remove} edit={this.state.editing}>{
+									return <List key={i} user={list} userUpdate={this.userUpdate} >{
 										
 										<tr>
 									        <td>{list.name}</td>
 									        <td>{list.email}</td>
 									        <td>{list.phone}</td>
+									        <td>
+										        <i style={this.style} className="glyphicon glyphicon-pencil"></i>
+										        &nbsp;&nbsp; &nbsp;
+										        <span style={this.style} className="glyphicon glyphicon-trash" onClick={()=>this.remove(list)}></span>
+									        </td>
 								      	</tr>
 								      	
 									}</List>

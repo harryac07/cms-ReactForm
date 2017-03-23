@@ -9,18 +9,27 @@ var List = React.createClass({
 
 	},
 	componentWillMount() {
-		this.style={
-			   padding:'10px',
-			   backgroundColor:'#ccc',
-			   borderRadius:'48%'
-		};
+
 	},
-	remove() {
-		var confirmDelete =confirm("Delete username "+this.props.user.name+' ?');
-		if(confirmDelete === true){
-			this.props.remove(this.props.user);
-		}
+
+	componentDidMount() {
+
+		var spans =  document.querySelector('td');
+ 		spans.addEventListener('click', this.handleClick,false);
 		
+
+	},
+
+	componentWillUnmount() {
+		var spans =  document.querySelector('td');
+ 		spans.removeEventListener('click', this.handleClick,false);
+	},
+
+	handleClick(e){
+        if(e.target.tagName==='I'){
+        	this.setState({editing:true})
+        }
+
 	},
 
 	edit(){
@@ -29,7 +38,9 @@ var List = React.createClass({
 
 	},
 
-	save() {
+	save(e) {
+
+		e.preventDefault();
 		var updated={
 			id:this.props.user.id,
 			name:this.refs.name.value,
@@ -39,25 +50,28 @@ var List = React.createClass({
 		this.props.userUpdate(updated,this.props.user.id);
 		this.setState({editing:false});
 	},
-	cancel(){
+
+	cancel(e){
+
+		e.preventDefault();
 		this.setState({editing:false})
 	},
 
 	renderForm() {
 		return(
 			<div>
-				<form className="form-inline" style={this.formStyle} >
+				<form className="form-inline">
 					<div className="form-group">
-						<input type="text" className="form-control" defaultValue={this.props.user.name} ref="name" required />
+						<input type="text" className="form-control" defaultValue={this.props.user.name} ref="name" required autoComplete="off" />
 					</div>
 					<div className="form-group">
-						<input type="email" className="form-control" defaultValue={this.props.user.email} ref="email" required />
+						<input type="email" className="form-control" defaultValue={this.props.user.email} ref="email" required autoComplete="off" />
 					</div>
-					<input type="text" className="form-control" defaultValue={this.props.user.phone} ref="phone"  required />
+					<input type="text" className="form-control" defaultValue={this.props.user.phone} ref="phone"  required autoComplete="off" />
 					&nbsp;&nbsp;
-					<button style={this.buttonStyle} className="btn btn-primary " onClick={this.save}>Save</button>
+					<button className="btn btn-primary " onClick={this.save}>Save</button>
 					&nbsp;
-					<button style={this.buttonStyle} className="btn btn-danger " onClick={this.cancel}>Cancel</button>
+					<button className="btn btn-danger " onClick={this.cancel}>Cancel</button>
 				</form>
 			</div>
 		);
@@ -66,13 +80,10 @@ var List = React.createClass({
 
     renderDisplay() {
         return (
-			<tbody>	
+			<tbody onClick={ this.handleClick }>	
+
 				{this.props.children}
-				<span >
-		       		<span style={this.style} className="glyphicon glyphicon-pencil" onClick={this.edit}></span>
-		        	&nbsp; &nbsp;
-		       		<span style={this.style} className="glyphicon glyphicon-trash" onClick={this.remove}></span>
-		       	</span>
+
 		    </tbody>
         );
     }, //renderDisplay ends here
