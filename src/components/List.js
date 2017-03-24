@@ -57,7 +57,7 @@ var List = React.createClass({
 	renderForm() {
 		return(
 			<div>
-				<form className="form-inline" id="form-edit">
+				<form className="form-inline form-edit">
 					<div className="form-group">
 						<input type="text" className="form-control" defaultValue={this.props.user.name} ref="name" required autoComplete="off" />
 					</div>
@@ -72,6 +72,7 @@ var List = React.createClass({
 					&nbsp;
 					<button className="btn btn-danger " onClick={this.cancel}>Cancel</button>
 				</form>
+				
 			</div>
 		);
 	},
